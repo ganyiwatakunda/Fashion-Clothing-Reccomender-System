@@ -75,6 +75,8 @@ if uploaded_file is not None:
         st.image(display_image)
 
         # feature extract
+        seq_length = length(seq)
+
         features = feature_extraction(os.path.join("uploads",uploaded_file.name),model)
 
         # recommendation using BRT
