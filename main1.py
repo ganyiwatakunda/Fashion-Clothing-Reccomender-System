@@ -41,10 +41,9 @@ def feature_extraction(img_path,model):
 
     return normalized_result
 
-def recommend_brt(features, filenames):
+def recommend_brt(features, seq_length, model, feature_list, filenames):
     # Create a sequence of feature vectors
     seq = []
-    seq_len = 6
     for i in range(seq_len):
         seq.append(features)
     seq = np.array(seq)
@@ -53,6 +52,7 @@ def recommend_brt(features, filenames):
     target_seq = model.predict(np.expand_dims(seq, axis=0))[0]
     indices = np.argsort(target_seq)[-6:]
     indices = indices[::-1]
+
 
     return indices
 
@@ -70,7 +70,7 @@ if uploaded_file is not None:
         features = feature_extraction(os.path.join("uploads",uploaded_file.name),model)
 
         # recommendation using BRT
-        indices = recommend_brt(features, feature_list)
+        indices = recommend_brt(features, seq_length, brt_model, feature_list, filenames)
 
         # show the recommended images
         col1,col2,col3,col4,col5 = st.beta_columns(5)
