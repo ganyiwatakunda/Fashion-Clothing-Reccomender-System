@@ -53,7 +53,7 @@ def feature_extraction(img_path,model):
 def recommend_brt(features, seq_length, model, feature_list, filenames):
     # Create a sequence of feature vectors
     seq = []
-    seq_length = length of seq
+    seq_length = length-of seq
     for i in range(seq_length):
         seq.append(features)
     seq = np.array(seq)
