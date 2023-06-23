@@ -80,6 +80,7 @@ if uploaded_file is not None:
 
         # recommendation using BRT
         indices = recommend_brt(features, seq_len, brt_model, feature_list, filenames)
+        seq_len = 6
 
         # show the recommended images
         col1,col2,col3,col4,col5 = st.beta_columns(5)
