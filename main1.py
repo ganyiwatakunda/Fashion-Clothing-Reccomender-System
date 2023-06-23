@@ -41,7 +41,7 @@ def feature_extraction(img_path,model):
 
     return normalized_result
 
-def recommend_brt(features, seq_len, model, feature_list, filenames):
+def recommend_brt(features, filenames):
     # Create a sequence of feature vectors
     seq = []
     seq_len = 6
