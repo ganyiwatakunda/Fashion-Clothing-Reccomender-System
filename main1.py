@@ -70,7 +70,7 @@ if uploaded_file is not None:
         features = feature_extraction(os.path.join("uploads",uploaded_file.name),model)
 
         # recommendation using BRT
-        indices = recommend_brt(features, seq_length=6, brt_model, feature_list, filenames)
+        indices = recommend_brt(features, seq_len, brt_model, feature_list, filenames)
 
         # show the recommended images
         col1,col2,col3,col4,col5 = st.beta_columns(5)
