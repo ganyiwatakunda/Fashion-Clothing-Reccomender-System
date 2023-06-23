@@ -41,15 +41,6 @@ def feature_extraction(img_path,model):
 
     return normalized_result
 
-#def recommend(features,feature_list):
-   # neighbors = NearestNeighbors(n_neighbors=6, algorithm='brute', metric='euclidean')
-    #neighbors.fit(feature_list)
-
-    #distances, indices = neighbors.kneighbors([features])
-
-    #return indices
-
-
 def recommend_brt(features, seq_len, model, feature_list, filenames):
     # Create a sequence of feature vectors
     seq = []
@@ -79,8 +70,7 @@ if uploaded_file is not None:
         features = feature_extraction(os.path.join("uploads",uploaded_file.name),model)
 
         # recommendation using BRT
-        indices = recommend_brt(features, seq_len, brt_model, feature_list, filenames)
-        seq_len = 6
+        indices = recommend_brt(features, feature_list)
 
         # show the recommended images
         col1,col2,col3,col4,col5 = st.beta_columns(5)
